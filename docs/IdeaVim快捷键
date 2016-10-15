@@ -1,18 +1,27 @@
 
 ************************************
 常用：
-Ctrl + Q 显示文档
+Ctrl + Q     显示文档
 Ctrl + B， Ctrl + Tab 去声明处
 Ctrl + Alt + B 去实现处
 Ctrl + Shift + Space 智能提示
 Ctrl +[, Ctrl+] 去块头，块尾
-Ctrl + W 扩展选择
+Ctrl + W    扩展选择
 CTRL+SHIFT+上下箭头：上下移动代码块
-F2 跳到有错误的代码
-Ctrl + Tab 切换文件
+F2          跳到有错误的代码
+Ctrl + Tab  切换文件
 Shift + Shift : 快速切换文件
+zo,zc :     折叠开、关代码块
+m字母，·字母 ： 书签
+·. :        跳转到之前修改点
+v：         字符选择模式
+V:          行选择模式
+Ctr + v ：  块选择模式
+
 
 参考：http://blog.csdn.net/dc_726/article/details/42784275
+http://kidneyball.iteye.com/blog/1828427
+
 
 
 ************************************
