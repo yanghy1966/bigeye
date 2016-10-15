@@ -7,11 +7,12 @@ Ctrl + Alt + B 去实现处
 Ctrl + Shift + Space 智能提示
 Ctrl +[, Ctrl+] 去块头，块尾
 Ctrl + W 扩展选择
+CTRL+SHIFT+上下箭头：上下移动代码块
+F2 跳到有错误的代码
+Ctrl + Tab 切换文件
+Shift + Shift : 快速切换文件
 
-
-
-
-
+参考：http://blog.csdn.net/dc_726/article/details/42784275
 
 
 ************************************
