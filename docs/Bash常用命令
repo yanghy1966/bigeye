@@ -1,1 +1,12 @@
 
+!-n  倒数第n个历史命令
+!!  上一条命令
+Ctrl + R  反向查找命令
+ !$  上一条命令的最后一条参数
+ !^  上一条命令的第一个参数
+ :n  第n个参数
+ 
+ find    path    -option    [    -print ]    [ -exec    -ok    command ]    {} \;
+#-print 将查找到的文件输出到标准输出
+#-exec    command    {} \;       -----将查到的文件执行command操作,{} 和 \;之间有空格
+#-ok 和-exec相同，只不过在操作前要询用户 
