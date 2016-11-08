@@ -1,1 +1,21 @@
 
+1- install: 
+  # sudo apt-get install putty
+  
+- reboot
+- wget url
+- ls -t 按实际排序
+- cat file1
+- ls -alh
+- du -sh
+- find . -type f -exec ls -lh {} \;
+- less file1
+
+****************************************************
+Ctrl+L：刷新屏幕，相当于clear命令的效果。    
+Ctrl+A：使得光标移至行首    
+Ctrl+E：使得光标移至行尾     
+Ctrl+K：从光标位置删除字符至行尾    
+Ctrl+W：删除光标左边的单词     
+Ctrl+Y：粘贴上面某个方式删除的内容
+
