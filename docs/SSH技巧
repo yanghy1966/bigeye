@@ -1,1 +1,12 @@
 
+多条连接共享
+配置 ~/.ssh/config
+
+
+ControlMaster auto
+ControlPath /tmp/ssh_mux_%h_%p_%r
+
+长连接
+ControlPersist 4h
+
+别再输入密码
