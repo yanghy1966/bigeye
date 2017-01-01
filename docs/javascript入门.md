@@ -15,8 +15,48 @@
  ```
  * 大小写敏感。
  * 变量名可用$，_符号
- 
-# 数据类型
+ * 一条语句可以声明多个变量，以逗号分隔。也可以横跨多行：
+ ```javascript
+    var name="Gates",
+    age=56,
+    job="CEO";
+ ```
+  
+# 数据类型。具有动态类型
+* 字符串
+  使用单引号或双引号。字符串中可以嵌套引号
+* 数字 
+  只有一种数字类型，即浮点数。
+* 布尔
+   true，false
+* 数组
+  - 声明方法1：
+    var cars = new Array();
+    cars[0] = "audi";
+    cars[1] = "BMW";
+  - 声明方法2：
+    var cars = new Array("audi","BMW");
+  - 声明 方法3：
+    var cars = ["audo","BMW"];
+  - 声明方法4：
+    var cars = [];
+    cars.push('audo');
+    cars.push('BMW');
+    
+* 对象
+  - 由{}包括起来的代码块。里面由name:value来定义。应用十分广泛。
+  - 声明方法1：
+    var person={firstname:"Bill", lastname:"Gates", id:5566};   
+  - 声明方法2：
+    var person={};
+    person.firstname = "Bill";
+    person.lastname = "Gates";
+    person.id = 5566;
+        
+* Null
+
+* Undefined
+
 # 流程控制
 # 函数
 
