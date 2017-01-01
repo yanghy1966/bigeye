@@ -51,29 +51,35 @@
     
 * 对象
 
-- 由{}包括起来的代码块。里面由name:value来定义。应用十分广泛。
-  
-- 声明方法1：
+ - 由{}包括起来的代码块。里面由name:value来定义。应用十分广泛。
+ - JS中，所有事物都是对象，字符串，数字，日期等。
+ - JS中对象是拥有属性和方法的数据
+  
+ - 声明方法1：
     var person={firstname:"Bill", lastname:"Gates", id:5566};   
     
-- 声明方法2：
+ - 声明方法2：
     var person={};
     person.firstname = "Bill";
     person.lastname = "Gates";
     person.id = 5566;
-    
-- 引用方法1：
+    person.sayhi = function(){console.log('hi'};
+    
+ - 引用方法1：
     name = person.lastname;
     
-- 引用方法2：
+ - 引用方法2：
   
     name = person["lastname"];
     
-- 声明对象变量
+ - 创建对象变量
   
   var x = new Number;
   var person = new Object;
   var carname = new String;
+  
+ -  创建对象
+   
   
 * Null
   cars = null; // 表示清空变量
