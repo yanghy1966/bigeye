@@ -1,7 +1,11 @@
 # 参考资料
 * [w3school](http://www.w3school.com.cn)
 # 发展历史
-
+- 诞生 于1995年
+- 被ECMA-262所规范（语言核心）。它和Web浏览器没有任何关系
+- DOM是一种宿主环境，Node和Adobe Flash都是它的一种实现
+- 该语言的主要目的是描述DOM，提供API接口。当然也用来做服务器，如NODE
+- 该语言的另一个作用是描述浏览器BOM
 
 # 基本概念
 * 注释。单行注释用//, 多行注释用 /* */
@@ -87,12 +91,44 @@
 - 表示变量不含值
   
 # 流程控制
+* if
+  if ... else if ... else
+  
+* for
+  for(var i = 0; i< cars.length ; i++){}
+  for ( x in persion){ ... }
+
+* switch
+  switch(n){ case1: ... break; ... default: ...}
+  
+* while
+  while(...){...}
+
+* do
+  do{...}while( i< 5)
+  
+* break 跳出一层循环
+* continue
+* label
+  label：语句
+  label：{...}
+  
+* try/catch
+  try{} catch(err) {}
+
+* throw
+  throw err
+  
 
 # 函数
 
 # 类/对象
 # 常用库
-# 浏览器环境
-
+# 浏览器环境DOM
+* DOM文档对象模型，是对HTML的描述
+  - DOM的最高节点是html,下面包括head和body
+  
+* BOM浏览器对象模型
+  - 提供和浏览器的接口
 # 非浏览器环境
 # 调试工具
