@@ -52,11 +52,19 @@
     person.firstname = "Bill";
     person.lastname = "Gates";
     person.id = 5566;
-        
+  - 引用方法1：
+    name = person.lastname;
+  - 引用方法2：
+    name = person["lastname"];
+  - 声明对象变量
+  var x = new Number;
+  var person = new Object;
+  var carname = new String;
+  
 * Null
-
+  cars = null; // 表示清空变量
 * Undefined
-
+  - 表示变量不含值
 # 流程控制
 # 函数
 
