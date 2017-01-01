@@ -49,6 +49,7 @@
 * 对象
 
   - 由{}包括起来的代码块。里面由name:value来定义。应用十分广泛。
+  
   - 声明方法1：
     var person={firstname:"Bill", lastname:"Gates", id:5566};   
     
@@ -60,9 +61,11 @@
     
   - 引用方法1：
     name = person.lastname;
+    
   - 引用方法2：
   
     name = person["lastname"];
+    
   - 声明对象变量
   
   var x = new Number;
