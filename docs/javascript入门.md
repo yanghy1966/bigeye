@@ -32,41 +32,44 @@
 * 布尔
    true，false
 * 数组
-  - 声明方法1：
+
+- 声明方法1：
     var cars = new Array();
     cars[0] = "audi";
     cars[1] = "BMW";
-  - 声明方法2：
+
+- 声明方法2：
   
     var cars = new Array("audi","BMW");
-  - 声明 方法3：
+- 声明 方法3：
     var cars = ["audo","BMW"];
-  - 声明方法4：
+
+- 声明方法4：
     var cars = [];
     cars.push('audo');
     cars.push('BMW');
     
 * 对象
 
-  - 由{}包括起来的代码块。里面由name:value来定义。应用十分广泛。
+- 由{}包括起来的代码块。里面由name:value来定义。应用十分广泛。
   
-  - 声明方法1：
+- 声明方法1：
     var person={firstname:"Bill", lastname:"Gates", id:5566};   
     
-  - 声明方法2：
+- 声明方法2：
     var person={};
     person.firstname = "Bill";
     person.lastname = "Gates";
     person.id = 5566;
     
-  - 引用方法1：
+- 引用方法1：
     name = person.lastname;
     
-  - 引用方法2：
+- 引用方法2：
   
     name = person["lastname"];
     
-  - 声明对象变量
+- 声明对象变量
   
   var x = new Number;
   var person = new Object;
@@ -75,8 +78,10 @@
 * Null
   cars = null; // 表示清空变量
 * Undefined
-  - 表示变量不含值
+- 表示变量不含值
+  
 # 流程控制
+
 # 函数
 
 # 类/对象
