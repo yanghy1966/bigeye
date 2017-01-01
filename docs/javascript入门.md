@@ -9,6 +9,7 @@
 
 # 变量
 * 变量声明。一般用var, 没有var表示全局变量。
+
  ```javascript
     var x = 2;
     global = 10;
@@ -16,6 +17,7 @@
  * 大小写敏感。
  * 变量名可用$，_符号
  * 一条语句可以声明多个变量，以逗号分隔。也可以横跨多行：
+ 
  ```javascript
     var name="Gates",
     age=56,
