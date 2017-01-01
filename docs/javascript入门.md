@@ -126,9 +126,16 @@
 # 常用库
 # 浏览器环境DOM
 * DOM文档对象模型，是对HTML的描述
-  - DOM的最高节点是html,下面包括head和body
-  
+  - DOM的最高节点是document变量，下面是html
+  - html下面包括head和body
+  - 
+  
+  - 
+  
 * BOM浏览器对象模型
   - 提供和浏览器的接口
+  - BOM的核心对象是window，全局变量都可以通过window.xxx来访问。
+  - 用于描述窗口大小、位置、关系等
+  
 # 非浏览器环境
 # 调试工具
