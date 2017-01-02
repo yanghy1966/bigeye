@@ -383,12 +383,115 @@ filter()接收的回调函数，其实可以有多个参数。通常我们仅使
 
 ```
 
-
-
-
+* 闭包
+  把函数作为返回值
+  高阶函数除了可以接受函数作为参数外，还可以把函数作为结果值返回。
+  
+  ```javascript
+    function lazy_sum(arr) {
+    var sum = function () {
+        return arr.reduce(function (x, y) {
+            return x + y;
+        });
+    }
+    return sum;
+  }
+    
+  ```
+  var f = lazy_sum([1, 2, 3, 4, 5]); // function sum()
+  f(); // 15
+  
+  注意到返回的函数在其定义内部引用了局部变量arr，所以，当一个函数返回了一个函数后，其内部的局部变量还被新函数引用，所以，闭包用起来简单，实现起来可不容易。
+  
+  
+  
+  
 * 箭头函数
+箭头函数相当于匿名函数，并且简化了函数定义。箭头函数有两种格式，一种像上面的，只包含一个表达式，连{ ... }和return都省略掉了。还有一种可以包含多条语句，这时候就不能省略{ ... }和return：
 
-* generator
+
+* generator 产生器
+
+```javascript
+  function* fib(max) {
+    var
+        t,
+        a = 0,
+        b = 1,
+        n = 1;
+    while (n < max) {
+        yield a;
+        t = a + b;
+        a = b;
+        b = t;
+        n ++;
+    }
+    return a;
+  }
+  
+  fib(5); // fib {[[GeneratorStatus]]: "suspended", [[GeneratorReceiver]]: Window}
+```
+直接调用一个generator和调用函数不一样，fib(5)仅仅是创建了一个generator对象，还没有去执行它。
+
+```javasript
+  var f = fib(5);
+f.next(); // {value: 0, done: false}
+f.next(); // {value: 1, done: false}
+f.next(); // {value: 1, done: false}
+f.next(); // {value: 2, done: false}
+f.next(); // {value: 3, done: true}
+
+```
+
+```javascript
+  for (var x of fib(5)) {
+    console.log(x); // 依次输出0, 1, 1, 2, 3
+  }
+
+```
+
+因为generator可以在执行过程中多次返回，所以它看上去就像一个可以记住执行状态的函数，利用这一点，写一个generator就可以实现需要用面向对象才能实现的功能。例如，用一个对象来保存状态，得这么写：
+
+```javascript
+  var fib = {
+    a: 0,
+    b: 1,
+    n: 0,
+    max: 5,
+    next: function () {
+        var
+            r = this.a,
+            t = this.a + this.b;
+        this.a = this.b;
+        this.b = t;
+        if (this.n < this.max) {
+            this.n ++;
+            return r;
+        } else {
+            return undefined;
+        }
+    }
+  };
+
+```
+
+```javascript
+  try {
+    r1 = yield ajax('http://url-1', data1);
+    r2 = yield ajax('http://url-2', data2);
+    r3 = yield ajax('http://url-3', data3);
+    success(r3);
+  }
+  catch (err) {
+    handle(err);
+  }
+
+```
+
+
+
+
+
 
 
 # 类/对象
