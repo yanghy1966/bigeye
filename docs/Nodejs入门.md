@@ -102,5 +102,128 @@ server.listen(8080);
 
 console.log('Server is running at http://127.0.0.1:8080/');
 ```
+
 * crypto
+
+# Express
+```javascript
+var express = require('express');
+var app = express();
+
+app.get('/', function (req, res) {
+    res.send('Hello World!');
+});
+
+app.listen(3000, function () {
+    console.log('Example app listening on port 3000!');
+});
+
+```
+虽然Express的API很简单，但是它是基于ES5的语法，要实现异步代码，只有一个方法：回调。如果异步嵌套层次过多，代码写起来就非常难看：
+
+```javascript
+  app.get('/test', function (req, res) {
+    fs.readFile('/file1', function (err, data) {
+        if (err) {
+            res.status(500).send('read file1 error');
+        }
+        fs.readFile('/file2', function (err, data) {
+            if (err) {
+                res.status(500).send('read file2 error');
+            }
+            res.type('text/plain');
+            res.send(data);
+        });
+    });
+});
+
+```
+
+# Promise
+在JavaScript的世界中，所有代码都是单线程执行的。
+由于这个“缺陷”，导致JavaScript的所有网络操作，浏览器事件，都必须是异步执行。异步执行可以用回调函数实现：
+
+```javascript
+function callback() {
+    console.log('Done');
+}
+console.log('before setTimeout()');
+setTimeout(callback, 1000); // 1秒钟后调用callback函数
+console.log('after setTimeout()');
+
+```
+
+```javascript
+  var p1 = new Promise(test);
+  var p2 = p1.then(function (result) {
+    console.log('成功：' + result);
+  });
+  var p3 = p2.catch(function (reason) {
+      console.log('失败：' + reason);
+  });
+
+
+```
+
+
+
+
+
+# Koa 1.0 
+* koa是Express的下一代基于Node.js的web框架，目前有1.x和2.0两个版本。。和Express相比，koa 1.0使用generator实现异步，代码看起来像同步的：
+
+```javascript
+ var koa = require('koa');
+var app = koa();
+
+app.use('/test', function *() {
+    yield doReadFile1();
+    var data = yield doReadFile2();
+    this.body = data;
+});
+app.listen(3000);
+
+```
+
+用generator实现异步比回调简单了不少，但是generator的本意并不是异步。Promise才是为异步设计的，但是Promise的写法……想想就复杂。为了简化异步代码，ES7（目前是草案，还没有发布）引入了新的关键字async和await，可以轻松地把一个function变为异步模式：
+
+```javascript
+  async function () {
+    var data = await fs.read('/file1');
+}
+```
+
+* koa 2.0
+```javascript
+  app.use(async (ctx, next) => {
+    await next();
+    var data = await doReadFile();
+    ctx.response.type = 'text/plain';
+    ctx.response.body = data;
+});
+
+
+```
+实际代码：
+
+```javascript
+  app.use(async (ctx, next) => {
+    console.log(`${ctx.request.method} ${ctx.request.url}`); // 打印URL
+    await next(); // 调用下一个middleware
+});
+
+app.use(async (ctx, next) => {
+    const start = new Date().getTime(); // 当前时间
+    await next(); // 调用下一个middleware
+    const ms = new Date().getTime() - start; // 耗费时间
+    console.log(`Time: ${ms}ms`); // 打印耗费时间
+});
+
+app.use(async (ctx, next) => {
+    await next();
+    ctx.response.type = 'text/html';
+    ctx.response.body = '<h1>Hello, koa2!</h1>';
+});
+
+```
 
