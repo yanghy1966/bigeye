@@ -488,21 +488,22 @@ f.next(); // {value: 3, done: true}
 
 ```
 
-
-
-
-
-
-
 # 类/对象
 # 常用库
 # 浏览器环境DOM
 * DOM文档对象模型，是对HTML的描述
   - DOM的最高节点是document变量，下面是html
   - html下面包括head和body
-  - 
-  
-  - 
+* DOM方法：
+  - 添加（list.appendChild(js);insertBefore；）
+  - 删除 （parent.removeChild(self)；）
+  - 更新（1，p.innerHTML = 'ABC'; 2， p.innerText = '<script>alert("Hi")</script>'; 3，p.style.color = '#ff0000';）
+  - 遍历
+    
+* 搜索方法
+  - document.getElementById()和
+  - document.getElementsByTagName()，以及CSS选择器
+  - document.getElementsByClassName()。
   
 * BOM浏览器对象模型
   - 提供和浏览器的接口
