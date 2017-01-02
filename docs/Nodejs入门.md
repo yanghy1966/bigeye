@@ -74,10 +74,12 @@ module.exports = function () { return 'foo'; };
 
 * process
 process也是Node.js提供的一个对象，它代表当前Node.js进程。通过process对象可以拿到许多有用信息：
-JavaScript程序是由事件驱动执行的单线程模型，Node.js也不例外。Node.js不断执行响应事件的JavaScript函数，直到没有任何响应事件的函数可以执行时，Node.js就退出了。*
-*fs 
-*stream
-*http
+JavaScript程序是由事件驱动执行的单线程模型，Node.js也不例外。Node.js不断执行响应事件的JavaScript函数，直到没有任何响应事件的函数可以执行时，Node.js就退出了。
+
+* fs 
+* stream
+* http
+
 ```javascript
   'use strict';
 
@@ -100,4 +102,5 @@ server.listen(8080);
 
 console.log('Server is running at http://127.0.0.1:8080/');
 ```
-*crypto
+* crypto
+
