@@ -100,9 +100,19 @@
 * for
   for(var i = 0; i< cars.length ; i++){}
   for ( x in persion){ ... } // x是索引而不是具体元素
+  for(var x of a){...} //遍历映射和集合，ES6新特性
+  forEach()
+  
+  ```javascript
+    var a = ['A', 'B', 'C'];
+    a.forEach(function (element, index, array) {
+    // element: 指向当前元素的值
+    // index: 指向当前索引
+    // array: 指向Array对象本身
+    alert(element);
+    });
+  ```
   
-  
-
 * switch
   switch(n){ case1: ... break; ... default: ...}
   
@@ -144,12 +154,122 @@
     m.get('Adam'); // undefined
   ```
 
+# Set集合
+   Set和Map类似，但不存在重复的键值
+   var s = new Set([1,2,3,'4']);
+   s.add(5); // 添加元素
+   s.delete(3);
 
-# Set
+# iterable
+   ES6引入的新类型，用于遍历Map,Set,Array
 
+```javascript   
+   var a = ['A', 'B', 'C'];
+   var s = new Set(['A', 'B', 'C']);
+   var m = new Map([[1, 'x'], [2, 'y'], [3, 'z']]);
+   for (var x of a) { // 遍历Array
+     alert(x);
+   }
+   for (var x of s) { // 遍历Set
+     alert(x);
+   }
+  for (var x of m) { // 遍历Map
+     alert(x[0] + '=' + x[1]);
+  }
+```
 
 # 函数
+* 有名函数定义
+  function abc(x){ ... ; return ...}
+* arguments
+  函数内部有一个变量叫arguments,并且它永远指向函数传入的所有参数
+  
+  ```javascript
+   function foo(x) {
+     alert(x); // 10
+     for (var i=0; i<arguments.length; i++) {
+         alert(arguments[i]); // 10, 20, 30
+     }
+   }
+   foo(10, 20, 30);
+  ```
+  * rest参数. ES6支持
 
+ ```javascript
+  function foo(a, b, ...rest) {
+    console.log('a = ' + a);
+    console.log('b = ' + b);
+    console.log(rest);
+  }
+
+  foo(1, 2, 3, 4, 5);
+  // 结果:
+  // a = 1
+  // b = 2
+  // Array [ 3, 4, 5 ]
+
+  foo(1);
+  // 结果:
+  // a = 1
+  // b = undefined
+  // Array [] 
+
+ ```
+   
+* 匿名函数
+
+
+* 变量作用域
+  - 变量提升
+  JavaScript的函数定义有个特点，它会先扫描整个函数体的语句，把所有申明的变量“提升”到函数顶部：
+  
+  ```javascript
+  'use strict';
+
+  function foo() {
+    var x = 'Hello, ' + y;
+    alert(x);
+    var y = 'Bob';
+  }
+
+  foo();
+  
+  ```
+  - 全局作用域
+    JavaScript默认有一个全局对象window，全局作用域的变量实际上被绑定到window的一个属性
+    由于函数定义有两种方式，以变量方式var foo = function () {}定义的函数实际上也是一个全局变量，因此，顶层函数的定义也被视为一个全局   变量，并绑定到window对象：
+  
+  - 名字空间
+  ```javascript
+    // 唯一的全局变量MYAPP:
+    var MYAPP = {};
+
+    // 其他变量:
+    MYAPP.name = 'myapp';
+    MYAPP.version = 1.0;
+
+    // 其他函数:
+    MYAPP.foo = function () {
+    return 'foo';
+    };
+  
+  ```
+  - let 申明块级作用域.ES6支持
+  
+  ```javascript
+   'use strict';
+
+   function foo() {
+     var sum = 0;
+     for (let i=0; i<100; i++) {
+        sum += i;
+     }
+     i += 1; // SyntaxError
+   }
+  ```
+  
+  
+  
 # 类/对象
 # 常用库
 # 浏览器环境DOM
