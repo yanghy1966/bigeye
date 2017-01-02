@@ -179,6 +179,9 @@
 ```
 
 # 函数
+
+* 函数内部可以定义函数
+
 * 有名函数定义
   function abc(x){ ... ; return ...}
 * arguments
@@ -268,8 +271,126 @@
    }
   ```
   
+* 方法
+- 可以 在对象中绑定方法，也就是函数. 但在内部有this关键字。
+  JavaScript的函数内部如果调用了this，那么这个this到底指向谁？
+  答案是，视情况而定！
+   如果以对象的方法形式调用，比如xiaoming.age()，该函数的this指向被调用的对象，也就是xiaoming，这是符合我们预期的。
+   如果单独调用函数，比如getAge()，此时，该函数的this指向全局对象，也就是window。
+   要指定函数的this指向哪个对象，可以用函数本身的apply方法，它接收两个参数，第一个参数就是需要绑定的this变量，第二个参数是Array，表    示函数本身的参数。
+
+```javascript
+   var xiaoming = {
+      name: '小明',
+      birth: 1990,
+      age: function () {
+          var y = new Date().getFullYear();
+          return y - this.birth;
+      }
+  };
   
-  
+  xiaoming.age; // function xiaoming.age()
+  xiaoming.age(); // 今年调用是25,明年调用就变成26了
+  
+```
+* apply
+  
+```javascript
+function getAge() {
+    var y = new Date().getFullYear();
+    return y - this.birth;
+}
+
+var xiaoming = {
+    name: '小明',
+    birth: 1990,
+    age: getAge
+};
+
+xiaoming.age(); // 25
+getAge.apply(xiaoming, []); // 25, this指向xiaoming, 参数为空
+
+```
+
+* 高阶函数
+  一个函数可以接收另一个函数作为参数，这种函数就称之为高阶函数。
+  
+  ```javascript
+  function add(x, y, f) {
+    return f(x) + f(y);
+  }
+  
+  ```
+* map函数
+
+```javascript
+  function pow(x) {
+    return x * x;
+  }
+
+  var arr = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+  arr.map(pow); // [1, 4, 9, 16, 25, 36, 49, 64, 81]
+
+```
+
+* reduce
+再看reduce的用法。Array的reduce()把一个函数作用在这个Array的[x1, x2, x3...]上，这个函数必须接收两个参数，reduce()把结果继续和序列的下一个元素做累积计算，其效果就是：
+
+[x1, x2, x3, x4].reduce(f) = f(f(f(x1, x2), x3), x4)
+
+
+* filter
+filter也是一个常用的操作，它用于把Array的某些元素过滤掉，然后返回剩下的元素。
+
+```javascript
+  var arr = [1, 2, 4, 5, 6, 9, 10, 15];
+  var r = arr.filter(function (x) {
+    return x % 2 !== 0;
+  });
+  arr; // [1, 5, 9, 15]
+
+```
+
+* 回调函数
+filter()接收的回调函数，其实可以有多个参数。通常我们仅使用第一个参数，表示Array的某个元素。回调函数还可以接收另外两个参数，表示元素的位置和数组本身：
+
+```javascript
+  var arr = ['A', 'B', 'C'];
+  var r = arr.filter(function (element, index, self) {
+      console.log(element); // 依次打印'A', 'B', 'C'
+      console.log(index); // 依次打印0, 1, 2
+      console.log(self); // self就是变量arr
+      return true;
+  });
+  
+```
+
+
+
+
+* sort排序
+```javascript
+  var arr = [10, 20, 1, 2];
+  arr.sort(function (x, y) {
+      if (x < y) {
+          return -1;
+      }
+      if (x > y) {
+          return 1;
+      }
+      return 0;
+  }); // [1, 2, 10, 20]
+
+```
+
+
+
+
+* 箭头函数
+
+* generator
+
+
 # 类/对象
 # 常用库
 # 浏览器环境DOM
