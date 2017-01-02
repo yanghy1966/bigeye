@@ -1,5 +1,6 @@
 # 参考资料
 * [w3school](http://www.w3school.com.cn)
+* [廖雪峰](http://www.liaoxuefeng.com/wiki/001434446689867b27157e896e74d51a89c25cc8b43bdb3000)
 # 发展历史
 - 诞生 于1995年
 - 被ECMA-262所规范（语言核心）。它和Web浏览器没有任何关系
@@ -10,7 +11,9 @@
 # 基本概念
 * 注释。单行注释用//, 多行注释用 /* */
 * 在JS中用分号分割语句，但分号是可选的，用换行符也是可以的，但最好用分号。
-
+* 严格模式
+  'use strict'; // 放在脚本第一行，可避免吴用全局变量
+  
 # 变量
 * 变量声明。一般用var, 没有var表示全局变量。
 
@@ -96,7 +99,9 @@
   
 * for
   for(var i = 0; i< cars.length ; i++){}
-  for ( x in persion){ ... }
+  for ( x in persion){ ... } // x是索引而不是具体元素
+  
+  
 
 * switch
   switch(n){ case1: ... break; ... default: ...}
@@ -118,7 +123,30 @@
 
 * throw
   throw err
+
+# Map映射
+  JavaScript的对象有个小问题，就是键必须是字符串。但实际上Number或者其他数据类型作为键也是非常合理的。
+  为了解决这个问题，最新的ES6规范引入了新的数据类型Map
+
+  ```javascript
+    var m = new Map([['Michael', 95], ['Bob', 75], ['Tracy', 85]]);
+    m.get('Michael'); // 95
+  ```
+  初始化Map
   
+  ```javascript
+    var m = new Map(); // 空Map
+    m.set('Adam', 67); // 添加新的key-value
+    m.set('Bob', 59);
+    m.has('Adam'); // 是否存在key 'Adam': true
+    m.get('Adam'); // 67
+    m.delete('Adam'); // 删除key 'Adam'
+    m.get('Adam'); // undefined
+  ```
+
+
+# Set
+
 
 # 函数
 
